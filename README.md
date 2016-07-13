@@ -1,20 +1,12 @@
 # KUBE-AMQP-AUTOSCALE Dockerfile
 
-Dynamically scale kubernetes resources using length of an AMQP queue
-(number of messages available for retrieval from the queue) to
-determine the load on an application/Kubernetes pod.
+Dynamically scale kubernetes resources using length of an AMQP queue (number of messages available for retrieval from the queue) to determine the load on an application/Kubernetes pod.
 
 **NOTICE**
-If your application load is not queue-bound but rather CPU-sensitive, make
-sure to use built-in Kubernetes [Horizontal Pod Autoscaling](http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/)
-instead of this project.
+If your application load is not queue-bound but rather CPU-sensitive, make sure to use built-in Kubernetes [Horizontal Pod Autoscaling](http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/) instead of this project.
 
 
-This repository contains **Dockerfile** of
-[KUBE-AMQP-AUTOSCALE](http://www.github.com/mbogus/kube-amqp-autoscale/)
-for [Docker](https://www.docker.com/)'s
-[automated build](https://hub.docker.com/r/mbogus/kube-amqp-autoscale/)
-published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
+This repository contains **Dockerfile** of [KUBE-AMQP-AUTOSCALE](http://www.github.com/mbogus/kube-amqp-autoscale/) for [Docker](https://www.docker.com/)'s [automated build](https://hub.docker.com/r/mbogus/kube-amqp-autoscale/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 
 
 ## Base Docker Image
@@ -48,7 +40,7 @@ published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 * `AUTOSCALE_NS` Kubernetes namespace (default `default`)
 * `AUTOSCALE_KIND` type of the Kubernetes resource to autoscale, one of `Deployment`, `ReplicationController`, `ReplicaSet` (default `Deployment`)
 * `AUTOSCALE_NAME` name of the Kubernetes resource to autoscale
-* `AUTOSCALE_THRESHOLD` number of messages on a queue representing maximum load on the autocaled Kubernetes resource
+* `AUTOSCALE_THRESHOLD` number of messages on a queue representing maximum load on the autoscaled Kubernetes resource
 * `AUTOSCALE_MIN` lower limit for the number of replicas for a Kubernetes pod that can be set by the autoscaler (default `1`)
 * `AUTOSCALE_MAX` upper limit for the number of replicate for a Kubernetes pod that can be set by the autoscaler
 * `AUTOSCALE_INTERVAL` time interval between Kubernetes resource scale runs in secs (default `30`)
