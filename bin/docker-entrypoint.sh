@@ -118,7 +118,7 @@ BIN_DIR=${BIN_DIR:-`pwd`}
 PRG_BIN=${BIN_DIR}/autoscale
 
 _term() {
-  echo "Caught SIGTERM signal!"
+  echo "Received SIGTERM signal"
   kill -TERM "$GO_PID" 2>/dev/null
 }
 
