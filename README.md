@@ -11,7 +11,7 @@ This repository contains **Dockerfile** of [KUBE-AMQP-AUTOSCALE](http://www.gith
 
 ## Base Docker Image
 
-* [ubuntu:xenial](https://hub.docker.com/_/ubuntu/)
+* [fedora](https://hub.docker.com/_/fedora/)
 
 
 ## Installation
