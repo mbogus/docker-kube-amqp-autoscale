@@ -15,10 +15,10 @@ RUN \
     DEBIAN_FRONTEND=noninteractive apt-get -y install freetds-dev && \
     dpkg -l > /var/tmp/dpkg_pre_deps.txt && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install wget make git gcc && \
-    wget -nv --no-check-certificate https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz && \
-    shasum -a 256 go1.7.linux-amd64.tar.gz | grep 702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95 && \
-    tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz && \
-    rm -f go1.7.linux-amd64.tar.gz && \
+    wget -nv --no-check-certificate https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz && \
+    shasum -a 256 go1.7.1.linux-amd64.tar.gz | grep 43ad621c9b014cde8db17393dc108378d37bc853aa351a6c74bf6432c1bbd182 && \
+    tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz && \
+    rm -f go1.7.1.linux-amd64.tar.gz && \
     mkdir -p ${GOPATH}/{src,bin,pkg} && \
     git clone --depth 1 https://github.com/mbogus/kube-amqp-autoscale.git ${SRC_PATH} && \
     cd ${SRC_PATH} && \
