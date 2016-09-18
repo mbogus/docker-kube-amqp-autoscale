@@ -10,8 +10,6 @@ ADD bin/docker-entrypoint.sh /data/bin/
 RUN \
     adduser --disabled-password --gecos '' kube && \
     DEBIAN_FRONTEND=noninteractive apt-get -y update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install freetds-dev && \
     dpkg -l > /var/tmp/dpkg_pre_deps.txt && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install wget make git gcc && \
