@@ -4,6 +4,8 @@ ENV PATH ${PATH}:/usr/local/go/bin
 ENV GOPATH ${HOME}/go
 ENV SRC_PATH ${GOPATH}/src/autoscaler
 ENV BIN_DIR /data/bin
+ENV GO_VER 1.8
+ENV GO_SHA256 53ab94104ee3923e228a2cb2116e5e462ad3ebaeea06ff04463479d7f12d27ca
 
 ADD bin/docker-entrypoint.sh /data/bin/
 
@@ -13,10 +15,10 @@ RUN \
     DEBIAN_FRONTEND=noninteractive apt-get -y install freetds-dev && \
     dpkg -l > /var/tmp/dpkg_pre_deps.txt && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install wget make git gcc && \
-    wget -nv --no-check-certificate https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz && \
-    shasum -a 256 go1.7.1.linux-amd64.tar.gz | grep 43ad621c9b014cde8db17393dc108378d37bc853aa351a6c74bf6432c1bbd182 && \
-    tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz && \
-    rm -f go1.7.1.linux-amd64.tar.gz && \
+    wget -nv --no-check-certificate https://storage.googleapis.com/golang/go${GO_VER}.linux-amd64.tar.gz && \
+    shasum -a 256 go${GO_VER}.linux-amd64.tar.gz | grep ${GO_SHA256} && \
+    tar -C /usr/local -xzf go${GO_VER}.linux-amd64.tar.gz && \
+    rm -f go${GO_VER}.linux-amd64.tar.gz && \
     mkdir -p ${GOPATH}/{src,bin,pkg} && \
     git clone --depth 1 https://github.com/mbogus/kube-amqp-autoscale.git ${SRC_PATH} && \
     cd ${SRC_PATH} && \
