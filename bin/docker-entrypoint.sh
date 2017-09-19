@@ -117,14 +117,4 @@ fi
 BIN_DIR=${BIN_DIR:-`pwd`}
 PRG_BIN=${BIN_DIR}/autoscale
 
-_term() {
-  echo "Received SIGTERM signal"
-  kill -TERM "$GO_PID" 2>/dev/null
-}
-
-trap _term SIGTERM
-
-eval "${PRG_BIN} ${PRG_ARGS} 2>&1" &
-
-GO_PID=$!
-wait "$GO_PID"
+exec ${PRG_BIN} ${PRG_ARGS}
