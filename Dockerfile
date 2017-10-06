@@ -35,7 +35,6 @@ RUN \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y --purge && \
     DEBIAN_FRONTEND=noninteractive apt-get clean -y && \
     dpkg -l > /var/tmp/dpkg_post_deps.txt && \
-    diff /var/tmp/dpkg_pre_deps.txt /var/tmp/dpkg_post_deps.txt && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV GOPATH= SRC_PATH=
