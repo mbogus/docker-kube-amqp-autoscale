@@ -5,14 +5,11 @@ Dynamically scale kubernetes resources using length of an AMQP queue (number of 
 **NOTICE**
 If your application load is not queue-bound but rather CPU-sensitive, make sure to use built-in Kubernetes [Horizontal Pod Autoscaling](http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/) instead of this project.
 
-
 This repository contains **Dockerfile** of [KUBE-AMQP-AUTOSCALE](http://www.github.com/mbogus/kube-amqp-autoscale/) for [Docker](https://www.docker.com/)'s [automated build](https://hub.docker.com/r/mbogus/kube-amqp-autoscale/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
-
 
 ## Base Docker Image
 
 * [ubuntu](https://hub.docker.com/_/ubuntu/)
-
 
 ## Installation
 
@@ -21,7 +18,6 @@ This repository contains **Dockerfile** of [KUBE-AMQP-AUTOSCALE](http://www.gith
 2. Download [automated build](https://hub.docker.com/r/mbogus/kube-amqp-autoscale/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull mbogus/kube-amqp-autoscale`
 
    (alternatively, you can build an image from Dockerfile: `docker build -t="mbogus/kube-amqp-autoscale" github.com/mbogus/docker-kube-amqp-autoscale`)
-
 
 ## Usage
 
@@ -47,7 +43,7 @@ This repository contains **Dockerfile** of [KUBE-AMQP-AUTOSCALE](http://www.gith
 * `AUTOSCALE_INCREASE_LIMIT` limit number of Kubernetes pods to be provisioned in a single scale iteration to max of the value, set to a number greater than 0, default `unbounded`
 * `AUTOSCALE_DECREASE_LIMIT` limit number of Kubernetes pods to be terminated in a single scale iteration to max of the value, set to a number greater than 0, default `unbounded`
 
-#### Autoscale statistics
+#### Autoscale statistics
 
 * `AUTOSCALE_STATS_COVERAGE` required percentage of statistics to calculate average queue length (default `0.75`)
 * `AUTOSCALE_STATS_INTERVAL` time interval between metrics gathering runs in seconds (default `5`)
@@ -77,8 +73,7 @@ or:
 
 * `RABBITMQ_QUEUE` RabbitMQ queue name to measure load on an application
 
-
-#### Kubernetes cluster access
+#### Kubernetes cluster access
 
 * `KUBERNETES_SERVICE_URL` Kubernetes API URL, e.g. `http://127.0.0.1:8080`
 or
@@ -103,7 +98,6 @@ Path to a bearer token file for OAuth authentication, on a Kubernetes pod
 
 Path to CA certificate file for HTTPS connections to Kubernetes API from
 within a cluster `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt`
-
 
 ## Sample Kubernetes deployment file
 
