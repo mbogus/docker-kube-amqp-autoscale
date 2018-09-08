@@ -1,11 +1,11 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 ENV PATH ${PATH}:/usr/local/go/bin
 ENV GOPATH ${HOME}/go
 ENV SRC_PATH ${GOPATH}/src/autoscaler
 ENV BIN_DIR /data/bin
-ENV GO_VER 1.10.3
-ENV GO_SHA256 fa1b0e45d3b647c252f51f5e1204aba049cde4af177ef9f2181f43004f901035
+ENV GO_VER 1.11
+ENV GO_SHA256 b3fcf280ff86558e0559e185b601c9eade0fd24c900b4c63cd14d1d38613e499
 
 ADD bin/docker-entrypoint.sh /data/bin/
 
