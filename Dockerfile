@@ -4,8 +4,8 @@ ENV PATH ${PATH}:/usr/local/go/bin
 ENV GOPATH ${HOME}/go
 ENV SRC_PATH ${GOPATH}/src/autoscaler
 ENV BIN_DIR /data/bin
-ENV GO_VER 1.11.1
-ENV GO_SHA256 2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d92a1c9f63993
+ENV GO_VER 1.11.2
+ENV GO_SHA256 1dfe664fa3d8ad714bbd15a36627992effd150ddabd7523931f077b3926d736d
 
 ADD bin/docker-entrypoint.sh /data/bin/
 
